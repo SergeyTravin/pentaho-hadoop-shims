@@ -46,6 +46,17 @@ public class AvroInputField implements IAvroInputField{
 
   @Override
   public void setAvroType( AvroSpec.DataType avroType ) {
-
+    this.avroType = avroType;
   }
+
+  @Override
+  public void setAvroType( String avroType ) {
+    for ( AvroSpec.DataType tmpType : AvroSpec.DataType.values() ) {
+      if ( tmpType.getType().equalsIgnoreCase( avroType ) ) {
+        this.avroType = tmpType;
+        break;
+      }
+    }
+  }
+
 }
